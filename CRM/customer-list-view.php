@@ -75,7 +75,7 @@
                                     $diff = date_diff($bday,$datenow);
                                     echo $diff->format("%y%");
                                     ?> years old</p>
-                                    <p><strong>Contact: </strong><i style="color:blue"></i><?php echo $row['country'];?></p>
+                                    <p><strong>Country: </strong><i style="color:blue"></i><?php echo $row['country'];?></p>
                                     <p><strong>Email : </strong><i style="color:blue"></i><?php echo $row['email'];?></p>
                                     
                                      <?php }

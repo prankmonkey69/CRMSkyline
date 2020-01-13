@@ -50,20 +50,20 @@
                 <h6 class="card-subtitle mb-2 text-muted">Phone Number: <?php echo $row['contact_no'];?></h6>
                 <h6 class="card-subtitle mb-2 text-muted">Email: <?php echo $row['email'];?></h6>
                 <textarea name="message" disabled id="message" class="form-control"><?php echo $row ['message']?></textarea>
-                <h6 class="card-subtitle mb-2 text-muted"  style="float:right;">Complaint Date: <?php echo $row['created_at'];?></h6>
+                <br>
+                <h6 class="card-subtitle mb-2 text-muted"  style="float:right;font-size:12px;">Complaint Date: <?php echo $row['created_at'];?></h6>
                 <br>
                 <?php if($row['action']!=''){?>
                 <h5 class="card-subtitle mb-2 text-muted">Action:</h5>
                 <textarea name="message" disabled id="message" class="form-control"><?php echo $row ['action']?></textarea>
-                <h6 class="card-subtitle mb-2 text-muted" style="float:right;">Date Actioned: <?php echo $row['action_date'];?></h6>
+                <h6 class="card-subtitle mb-2 text-muted" style="float:right;font-size:4px;">Date Actioned: <?php echo $row['action_date'];?></h6>
                 <br>
                 <?php }else{?>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#accept" style="float:right;">
+                <!--<button type="button" class="btn btn-success" data-toggle="modal" data-target="#accept" style="float:right;">
                     Action
-                </button>
+                </button>-->
                 <?php }?>
-              <br>
-              <br>
+              
               <h6 class="card-subtitle mb-1 text-muted" style="float:right;">Complaint created by: <?php echo $row['staffname'];?></h6>
               </div>
             <?php }?>

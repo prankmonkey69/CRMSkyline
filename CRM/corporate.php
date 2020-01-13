@@ -42,11 +42,8 @@ if(isset($_POST['submittravelagency'])){
 				  <button class="btn btn-success" data-toggle="modal" data-target="#accept" style="float:right;">
                     Add Travel Agency
                 </button>
-	                  	<form action="/search" method="GET" style="width:400px"> 
-	                          <input type="text" name="title" class="form-control" placeholder="Search">
+	                          <input type="text" name="search" id="search" class="form-control" placeholder="Search">
 	                          <input type="submit" hidden>
-	                    </form>
-						
 	                    <br>
 					    <table class="table table-borderless">
 					        <thead class="bg-primary text-white">
@@ -57,21 +54,6 @@ if(isset($_POST['submittravelagency'])){
 					          </tr>
 					        </thead>
 					        <tbody>
-                  <?php $count = 1;
-                  if($rows->rowCount() != 0){ ?>
-								<?php while($row = $rows->fetch()) {?>
-								<tr>
-									<td scope="row"><?php echo $count++; ?></td>
-									<td><?php echo $row['corporate_name']; ?> </td>
-									<td><a href="corporate-view.php?corporate_id=<?php echo $row['id']; ?>"class="button btn-view"><i class="fas fa-eye"></i>&nbsp;view</a>
-								</tr>
-							
-                <?php }
-                }else{ 
-                  echo"
-                        <td colspan='3'><h6 class='card-subtitle mb-2 text-muted ' align='center' >No data found</h6></td>
-                        ";
-                }?>
 								</tbody>
 					      </table>
 				  </div>
@@ -80,6 +62,31 @@ if(isset($_POST['submittravelagency'])){
 	  </div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

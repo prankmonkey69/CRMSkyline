@@ -75,7 +75,7 @@ class Controller extends Db {
 
 	//function for call complaints getCallComplaints
 	protected function getCreateCallComplaint($name,$contact_no,$email,$message,$firstname,$lastname){
-		$stmt = $this->connect()->prepare("INSERT INTO CRM_cal_complaint (name,contact_no,email,message,created_at,staffname)
+		$stmt = $this->connect()->prepare("INSERT INTO CRM_call_complaint (name,contact_no,email,message,created_at,staffname)
 										 VALUES (?,?,?,?,GETDATE(),?)");
 		$staffname = $firstname .' '. $lastname;
 		$stmt->bindparam(1,$name);
@@ -88,32 +88,32 @@ class Controller extends Db {
 
 	protected function getCallComplaints(){
 		$stmt = $this->connect()->prepare("SELECT *
-											FROM CRM_cal_complaint");
+											FROM CRM_call_complaint");
 		$stmt->execute();
 		return $stmt;
 	}
 	// for viewing od call complaint
 	protected function getCallview($id){
 		$stmt = $this->connect()->prepare("SELECT *
-											FROM CRM_cal_complaint WHERE id=?");
+											FROM CRM_call_complaint WHERE id=?");
 		$stmt->bindparam(1,$id);
 		$stmt->execute();
 		return $stmt;
 	}
 	protected function InsertCallAction($action,$id){
-		$stmt = $this->connect()->prepare("UPDATE  CRM_Cal_Complaint SET action=?,action_date=GETDATE()  WHERE ID=".$id);
+		$stmt = $this->connect()->prepare("UPDATE  CRM_Call_Complaint SET action=?,action_date=GETDATE()  WHERE ID=".$id);
 		$stmt->bindparam(1,$action);
 		$stmt->execute();
 		return true;
 	}
 
 	protected function getsearchCallCom($search_name){
-		$stmt = $this->connect()->prepare(" SELECT * FROM CRM_Cal_Complaint where  name LIKE '%$search_name%'");
+		$stmt = $this->connect()->prepare(" SELECT * FROM CRM_Call_Complaint where  name LIKE '%$search_name%'");
 		$stmt->execute();
 		return true;
 	}
 	protected function getArchive($id){
-		$stmt = $this->connect()->prepare("UPDATE  CRM_Cal_Complaint SET  archive_date=GETDATE()  WHERE ID=".$id);
+		$stmt = $this->connect()->prepare("UPDATE  CRM_Call_Complaint SET  archive_date=GETDATE()  WHERE ID=".$id);
 		$stmt->execute();
 		return true;
 	}

@@ -340,6 +340,31 @@ $row = $object->viewPostNews();
 
 
   <footer class="footer page-footer font-small pt-4">
+    
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    xfbml            : true,
+    version          : 'v5.0'
+  });
+};
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=install_email
+  page_id="103045464571713">
+</div>
+
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -446,6 +471,10 @@ $row = $object->viewPostNews();
   </div>
   <!-- Copyright -->
 
+
+
+
+
 </footer>
 
 
@@ -456,9 +485,7 @@ $row = $object->viewPostNews();
 
 
 
-
-
-<!--Start of Tawk.to Script-->
+<!--Start of Tawk.to Script
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -470,7 +497,7 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
   </script>
-  <!--End of Tawk.to Script-->  
+End of Tawk.to Script-->  
 </body>
 </html>
         
