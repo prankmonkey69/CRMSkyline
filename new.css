@@ -1,0 +1,63 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+
+.upper-nav a{
+	color: white;
+}
+
+.navigation-bar{
+	background-color:#c0392b;
+	opacity: 0.9;
+}
+
+.caro img{
+	opacity: 0.5;
+}
+
+
+.card-deck .card:hover{
+  color: #c0392b;
+}
+
+.bed-card .card img{
+	opacity: 0.5;
+}
+
+
+.events img{
+  transition: transform .5s;
+}
+
+.events img:hover{
+  transform: scale(1.1);
+}
+
+.testimony{
+  background-color: #c0392b;
+  opacity: 0.6
+}
+
+.contact{
+	background-color: #c0392b;
+}
+
+.footer{
+	background-color: #7f8c8d;
+}
+
+.icon{
+	color: white;
+}
+
+.icon i{
+	color: white;
+	font-size: 25px;
+}
+
+.icon i:hover{
+	color: #c0392b;
+	font-size: 25px;
+}
