@@ -19,12 +19,29 @@
 	  </div>
 	  <div class="card-body">
 
-		<?php
+	  <?php
 			if(isset($_POST['submitNewsLetter'])){
 				if($object->insertNewsLetter($_POST['title'],$_POST['description'],$_FILES['file'],$_POST['updated_at'])){
 					echo "
 						<div class='alert alert-success'>
 						<strong>Success!</strong> News Letter has been created.
+						</div>";
+						$rows = $object->viewNewsLetter();
+				}else{
+					echo "
+						<div class='alert alert-danger'>
+						<strong>Failed!</strong> Creating failed. ".$_SESSION['errorMessage']."
+						</div>";
+				}
+			}
+		?>
+
+		<?php
+			if(isset($_POST['archive'])){
+				if($object->viewArchiveLetter($_POST['id'])){
+					echo "
+						<div class='alert alert-success'>
+						<strong>Success!</strong> Archiving has been successfully.
 						</div>";
 						$rows = $object->viewNewsLetter();
 				}else{
@@ -91,22 +108,31 @@
 					            <th scope="col" >Title</th>
 					            <th scope="col" style='text-align:left'>Description</th>
 					            <th scope="col">Created Date</th>
-					            <th scope="col" style="width:100px;">Action</th>
+					            <th rowspan="2" >Action</th>
+								<th style="width:100px;"></th>
 					          </tr>
 					        </thead>
 					        <tbody>
 									<?php $count = 1; ?>
-								<?php while($row = $rows->fetch()) {?>
+								<?php while($row = $rows->fetch()) {
+									if($row['archive_date']!=null) { ?>
 								<tr>
 									
 									<td scope="row"><?php echo $count; ?></td>
 									<td><?php echo $row['title'];?></td>
 									<td><?php echo $row['description'];?></td>
 									<td><?php echo $row['created_at'];?></td>
-									<td><a href="newsletter-view.php?id=<?php echo $row['id']; ?>" class="button btn-view"><i class="fas fa-eye"></i>&nbsp;view</a>
+									<td><a href="newsletter-view.php?id=<?php echo $row['id']; ?>" class="button btn-view"><i class="fas fa-eye"></i>&nbsp;view</a></td>
+									<form action='newsletter.php' method="post">
+									<?php if($user_type=='admin') { ?>
+									<input type="hidden" name='id' value="<?php echo $row['id']; ?>">
+									<td><button name="archive" class="button btn-danger "><i class="fas fa-trash">archive</button></td>
+									</form>
 								</tr>
-								<?php $count++; ?>
-								<?php }?>
+									<?php }
+									$count++; ?>
+								<?php }
+								}?>
 								</tbody>
 					      </table>
 				  </div>

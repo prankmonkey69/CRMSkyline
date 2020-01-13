@@ -275,6 +275,13 @@ class Controller extends Db {
 
 	}
 
+	protected function getArchiveLetter($id){
+		$stmt = $this->connect()->prepare("UPDATE CRM_newsletter SET archive_date = GETDATE() where id = ?");
+		$stmt->bindparam(1,$id);
+		$stmt->execute();
+		return $stmt;
+	}
+
 	protected function getNewsLetterView($id){
 		$stmt = $this->connect()->prepare("SELECT * FROM CRM_newsletter where id = ?");
 		$stmt->bindparam(1,$id);

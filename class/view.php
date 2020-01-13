@@ -115,6 +115,10 @@ class View extends Controller {
 		return $this->newsLetter($title,$description,$file,$date);
 	}
 
+	public function viewArchiveLetter($id){
+		return $this->getArchiveLetter($id);
+	}
+
 	public function viewPostNews(){
 		return $this->getPostNews();
 	}

@@ -20,7 +20,7 @@
                     header("location:CRM/index.php"); 
                     echo 'Login Success!';
                 }elseif($_SESSION['user_type']=='staff'){
-                    header("location:staff/complaints.php"); 
+                    header("location:CRM/index.php"); 
                     echo 'Login Success!';
                 }
                 
