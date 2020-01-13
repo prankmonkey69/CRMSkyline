@@ -9,7 +9,7 @@ class Db {
 	private $charset;
 
 	protected function connect() {
-		$this->servername = "newconnection";
+		$this->servername = "changeagain";
 		$this->username = "sa";
 		$this->password = "salvame123";
 		$this->dbName = "crm";
