@@ -36,6 +36,9 @@ $pdf->AddPage('P','A4',0);
 
 
         if ($data = $info->fetch()) {
+            $diff1 = date_create($data['reserved_date']);
+            $diff2 = date_create($data['check_out_date']);
+            $diff = date_diff($diff1,$diff2)->format("%a%");
         $pdf->SetFont('Arial','',12);
         $pdf->Cell('15','5','Name: ',0,0);
         $pdf->SetFont('Arial','',12);
@@ -47,12 +50,15 @@ $pdf->AddPage('P','A4',0);
         $pdf->Cell('15','5','',0,1);
         $pdf->Cell('73','5','Number of Guest: '.$data['no_of_guests'],0,0);
         $pdf->Cell('73','5','Reserved Date: '.date("F j, Y",strtotime($data['reserved_date'])),0,1);
-        $pdf->Cell('73','5','Number of Days: '.$data['no_of_days'],0,0);
-        $pdf->Cell('73','5','Package Name: '.$data['promo'],0,1);
-        $pdf->Cell('73','5','Number of Room: '.$data['no_of_room'],0,0);
-        $pdf->Cell('73','5','Package Rate: '.$data['promorate'].' Php/Day',0,1);
+        $pdf->Cell('73','5','Check Out Date: '.date("F j, Y",strtotime($data['check_out_date'])),0,0);
+        $pdf->Cell('73','5','Number of Days: '.$diff,0,1);
+        $pdf->Cell('73','5','Package Name: '.$data['promo'],0,0);
+        $pdf->Cell('73','5','Number of Room: '.$data['no_of_room'],0,1);
+        $pdf->Cell('73','5','Package Rate: '.$data['promorate'].' Php/Day',0,0);
+        $pdf->Cell('73','5','',0,1);
+        $pdf->Cell('73','5','',0,1);
         $pdf->Cell('73','5','',0,0);
-        $pdf->Cell('73','10','Total Amount: '.$data['promorate']*$data['no_of_days']*$data['no_of_room'].' Php',0,1);
+        $pdf->Cell('73','5','Total Amount: '.$data['promorate']*$diff*$data['no_of_room'].' Php',0,1);
         $pdf->Cell('15','5','_____________________________________________________________________________',0,1);
         $pdf->Cell('15','5','',0,1);
         $pdf->SetFont('Arial','',12);

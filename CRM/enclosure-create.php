@@ -30,12 +30,12 @@
                                         <input type="number" name="no_of_guests" class="form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <span>Number Days</span>
-                                        <input type="number" name="no_of_days" class="form-control" required>
-                                    </div>
-                                    <div class="form-group">
                                         <span>Reserved Date</span>
                                         <input type="date" data-date="yyyy-mm-dd" name="reserved_date" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <span>Check Out Date</span>
+                                        <input type="date" data-date="yyyy-mm-dd" name="check_out_date" class="form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <span>Number of Room</span>

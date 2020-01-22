@@ -148,9 +148,9 @@ class View extends Controller {
 		return $this->getEnclosetype($id);
 	}
 
-	public function insertEnclosure($travelagent_id,$no_of_guest,$no_of_days,$reserved_date,
+	public function insertEnclosure($travelagent_id,$no_of_guest,$check_out,$reserved_date,
 									$promo_id,$type_no,$no_of_room){
-		return $this->Enclosure($travelagent_id,$no_of_guest,$no_of_days,$reserved_date,
+		return $this->Enclosure($travelagent_id,$no_of_guest,$check_out,$reserved_date,
 									$promo_id,$type_no,$no_of_room);
 	}
 

@@ -22,7 +22,7 @@ if(isset($_POST['submitEnclosure'])){
     if($object->insertEnclosure($_POST['travelagent_id'],
     $_POST['no_of_guests'],
     $_POST['reserved_date'],
-    $_POST['no_of_days'],
+    $_POST['check_out_date'],
     $_POST['promo_id'],
     $_POST['type_no'],
     $_POST['no_of_room'])){

@@ -368,14 +368,14 @@ class Controller extends Db {
 		return $stmt;
 	}
 	// for enclosures
-	protected function Enclosure($travelagent_id,$no_of_guest,$reserved_date,$no_of_days,$promo_id,$type_no,$no_of_room
+	protected function Enclosure($travelagent_id,$no_of_guest,$reserved_date,$check_out,$promo_id,$type_no,$no_of_room
 								){
 		$sql = "INSERT INTO CRM_enclosement(
 							travelagent_id,
 							no_of_guests,
 							created_at,
 							reserved_date,
-							no_of_days,
+							check_out_date,
 							type_no,
 							no_of_room,
 							promo_id
@@ -385,7 +385,7 @@ class Controller extends Db {
 		$stmt->bindparam(1,$travelagent_id);
 		$stmt->bindparam(2,$no_of_guest);
 		$stmt->bindparam(3,$reserved_date);
-		$stmt->bindparam(4,$no_of_days);
+		$stmt->bindparam(4,$check_out);
 		$stmt->bindparam(5,$type_no);
 		$stmt->bindparam(6,$no_of_room);
 		$stmt->bindparam(7,$promo_id);
